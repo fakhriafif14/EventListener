@@ -7,13 +7,13 @@
 
 
 ## Latihan OOP
-![image](ss/ss1.png)
+![image](MVC/ss1.png)
 
 ### STRUKTUR PROYEK
 
 - Proyek ini menggunakan arsitektur MVC (Model-View-Controller) dengan struktur folder:
 
-![image](ss/ss2.png)
+![image](MVC/ss2.png)
 
 - classes: Berisi kelas-kelas dasar dan utilitas
 
@@ -32,7 +32,7 @@
 
 #### BaseModel.java
 
-![image](ss/ss3.png)
+![image](MVC/ss3.png)
 
 - Merupakan abstract class yang menjadi dasar untuk semua model
 Mengimplementasikan operasi CRUD dasar (Create, Read, Update, Delete)
@@ -53,7 +53,7 @@ Method abstract yang harus diimplementasikan:
 
 #### Database.java
 
-![image](ss/ss4.png)
+![image](MVC/ss4.png)
 
 - Mengatur koneksi ke database MySQL
 Menggunakan pattern Singleton untuk koneksi database
@@ -70,7 +70,7 @@ Menyimpan konfigurasi database seperti:
 
 #### RowMapper.java
 
-![image](ss/ss5.png)
+![image](MVC/ss5.png)
 
 - Interface untuk mapping data dari ResultSet ke objek
 
@@ -82,7 +82,7 @@ Menyimpan konfigurasi database seperti:
 
 #### MahasiswaController.java
 
-![image](ss/ss7.png)
+![image](MVC/ss7.png)
 
 - Menghubungkan Model dan View
 Menghandle event dari View
@@ -102,7 +102,7 @@ Implementasi logika bisnis seperti:
 
 #### Mahasiswa.java
 
-![image](ss/ss8.png)
+![image](MVC/ss8.png)
 
 - POJO (Plain Old Java Object) untuk data mahasiswa
 Memiliki properti:
@@ -123,7 +123,7 @@ Dilengkapi dengan getter dan setter
 
 #### MahasiswaModel.java
 
-![image](ss/ss9.png)
+![image](MVC/ss9.png)
 
 - Extends BaseModel<Mahasiswa>
 Implementasi operasi database untuk entity Mahasiswa
@@ -146,7 +146,7 @@ Implementasi method CRUD:
 
 #### FormMahasiswa.java
 
-![image](ss/ss10.png)
+![image](MVC/ss10.png)
 
 - Implementasi GUI menggunakan Java Swing
 Komponen utama:
@@ -171,7 +171,7 @@ Event handling untuk interaksi user
 
 ### E. Main.java
 
-![image](ss/ss11.png)
+![image](MVC/ss11.png)
 
 - Entry point aplikasi
 Inisialisasi semua komponen:
@@ -261,6 +261,6 @@ CREATE TABLE mahasiswa (
 
 ### Output
 
-![image](ss/ss13.png)
+![image](MVC/ss13.png)
 
 ## Selesai
