@@ -1,4 +1,4 @@
-## Project OOP berbasis MVC
+## Event Listener
 | Pertemuan 13  |  Pemrograman Berorientasi Objek  
 |-------|---------
 | NIM   | 312310632
@@ -7,23 +7,23 @@
 
 
 ## Latihan OOP
-![image](MVC/ss1.png)
+![image](img/latihan.png)
 
 ### STRUKTUR PROYEK
 
-- Proyek ini menggunakan arsitektur MVC (Model-View-Controller) dengan struktur folder:
+**- Proyek ini menggunakan arsitektur MVC (Model-View-Controller) dengan struktur folder:**
 
-![image](MVC/ss2.png)
+![image](img/ss0.png)
 
-- classes: Berisi kelas-kelas dasar dan utilitas
+**- classes:** Berisi kelas-kelas dasar dan utilitas
 
-- controller: Berisi logic untuk mengontrol alur data
+**- controller:** Berisi logic untuk mengontrol alur data
 
-- model: Berisi struktur data dan operasi database
+**- model:** Berisi struktur data dan operasi database
 
-- view: Berisi tampilan GUI
+**- view:** Berisi tampilan GUI
 
-- Main.java: File utama untuk menjalankan aplikasi
+**- Main.java:** File utama untuk menjalankan aplikasi
 
 
 ## PENJELASAN SETIAP PACKAGE DAN FILE
@@ -32,172 +32,325 @@
 
 #### BaseModel.java
 
-![image](MVC/ss3.png)
+![image](img/ss1.png)
 
 - Merupakan abstract class yang menjadi dasar untuk semua model
 Mengimplementasikan operasi CRUD dasar (Create, Read, Update, Delete)
 Menggunakan generic type <T> untuk fleksibilitas tipe data
 Method abstract yang harus diimplementasikan:
 
-1. findAll(): Mengambil semua data
+**1. findAll():** Mengambil semua data
 
-2. findById(): Mencari data berdasarkan ID
+**2. findById():** Mencari data berdasarkan ID
 
-3. insert(): Menambah data baru
+**3. insert():** Menambah data baru
 
-4. update(): Mengubah data
+**4. update():** Mengubah data
 
-5. delete(): Menghapus data
+**5. delete():** Menghapus data
 
 
 
 #### Database.java
 
-![image](MVC/ss4.png)
+![image](img/ss2.png)
 
 - Mengatur koneksi ke database MySQL
 Menggunakan pattern Singleton untuk koneksi database
 Menyimpan konfigurasi database seperti:
 
-1. DRIVER: MySQL JDBC driver
+**1. DRIVER:** MySQL JDBC driver
 
-2. URL: Alamat database
+**2. URL:** Alamat database
 
-3. USERNAME: Username MySQL
+**3. USERNAME:** Username MySQL
 
-4. PASSWORD: Password MySQL
+**4. PASSWORD:** Password MySQL
 
 
 #### RowMapper.java
 
-![image](MVC/ss5.png)
+![image](img/ss3.png)
 
 - Interface untuk mapping data dari ResultSet ke objek
 
-1. Memudahkan konversi data dari database ke objek Java
+**1. Memudahkan konversi data dari database ke objek Java**
 
-2. Menggunakan generic type untuk fleksibilitas
+**2. Menggunakan generic type untuk fleksibilitas**
 
 ### B. Package Controller:
 
 #### MahasiswaController.java
 
-![image](MVC/ss7.png)
+![image](img/ss4.png)
 
 - Menghubungkan Model dan View
 Menghandle event dari View
 Implementasi logika bisnis seperti:
 
-1. saveMahasiswa(): Menyimpan/update data mahasiswa
+**1. saveMahasiswa():** Menyimpan/update data mahasiswa
 
-2. deleteMahasiswa(): Menghapus data mahasiswa
+**2. deleteMahasiswa():** Menghapus data mahasiswa
 
-3. clearForm(): Membersihkan form
+**3. clearForm():** Membersihkan form
 
-4. refreshTable(): Memperbarui tampilan tabel
+**4. refreshTable():** Memperbarui tampilan tabel
 
+#### NilaiController.java
 
+![image](img/ss5nilai.png)
+
+- Mengontrol operasi CRUD untuk data nilai mahasiswa.
+
+**Fungsi utama:**
+
+**1. Simpan Nilai:** Memvalidasi data nilai sebelum menyimpan ke database (termasuk memastikan ID mahasiswa valid dan nilai dalam rentang 0-100).
+
+**2. Hapus Nilai:** Menghapus data nilai berdasarkan id.
+
+**3. Refresh Tabel:** Memuat ulang data nilai ke tabel di antarmuka pengguna.
 
 ### C. Package Model:
 
 #### Mahasiswa.java
 
-![image](MVC/ss8.png)
+![image](img/ss7.png)
 
 - POJO (Plain Old Java Object) untuk data mahasiswa
 Memiliki properti:
 
-1. id: ID mahasiswa
+**1. id:** ID mahasiswa
 
-2. nim: Nomor Induk Mahasiswa
+**2. nim:** Nomor Induk Mahasiswa
 
-3. nama: Nama mahasiswa
+**3. nama:** Nama mahasiswa
 
-4. jurusan: Jurusan mahasiswa
+**4. jurusan:** Jurusan mahasiswa
 
-5. alamat: Alamat mahasiswa
+**5. angkatan:** Angkatan Tahun mahasiswa
 
 
-Dilengkapi dengan getter dan setter
+- Dilengkapi dengan getter dan setter
 
 
 #### MahasiswaModel.java
 
-![image](MVC/ss9.png)
+![image](img/ss8.png)
 
 - Extends BaseModel<Mahasiswa>
 Implementasi operasi database untuk entity Mahasiswa
 Menggunakan PreparedStatement untuk keamanan dari SQL Injection
 Implementasi method CRUD:
 
-1. findAll(): SELECT semua mahasiswa
+**1. findAll():** SELECT semua mahasiswa
 
-2. findById(): SELECT mahasiswa berdasar ID
+**2. findById():** SELECT mahasiswa berdasar ID
 
-3. insert(): INSERT mahasiswa baru
+**3. insert():** INSERT mahasiswa baru
 
-4. update(): UPDATE data mahasiswa
+**4. update():** UPDATE data mahasiswa
 
-5. delete(): DELETE mahasiswa
+**5. delete():** DELETE mahasiswa
 
+#### Nilai.java
+
+![image](img/ss9.png)
+
+- Atribut Kelas
+
+**id**
+
+Tipe: **int**
+
+-Digunakan untuk menyimpan primary key dari tabel nilai. Atribut ini berfungsi sebagai identitas unik untuk setiap data nilai mahasiswa.
+
+**mahasiswaId**
+
+Tipe: **int**
+
+- Menyimpan referensi ke mahasiswa yang bersangkutan. Atribut ini mengacu pada ID mahasiswa di tabel mahasiswa (foreign key).
+
+**mataKuliah**
+
+Tipe: **String**
+
+- Menyimpan nama mata kuliah yang diambil oleh mahasiswa.
+
+**semester**
+
+Tipe: **int**
+
+- Menunjukkan semester di mana mata kuliah tersebut diambil.
+
+**nilaiTugas**
+
+Tipe: **float**
+
+- Menyimpan nilai tugas mahasiswa untuk mata kuliah tertentu.
+
+**nilaiUts**
+
+Tipe: **float**
+
+- Menyimpan nilai UTS (Ujian Tengah Semester) mahasiswa.
+
+**nilaiUas**
+
+Tipe: **float**
+
+- Menyimpan nilai UAS (Ujian Akhir Semester) mahasiswa.
+
+**nilaiAkhir (dihitung)**
+
+Tipe: **float**
+
+- Merupakan nilai akhir yang dihitung berdasarkan bobot dari nilai tugas, UTS, dan UAS. Biasanya, perhitungan dilakukan dengan rumus tertentu, misalnya:
+```
+nilaiAkhir = (0.3 * nilaiTugas) + (0.3 * nilaiUts) + (0.4 * nilaiUas);
+```
+-Nilai ini hanya digunakan untuk membaca hasil akhir dan tidak dimasukkan langsung oleh pengguna.
+
+**grade (dihitung)**
+
+Tipe: **String**
+
+- Menyimpan grade berdasarkan nilai akhir, misalnya:
+```
+A: >= 80
+B: 70 - 79
+C: 60 - 69
+D: 50 - 59
+E: < 50
+```
+- Grade ini digunakan untuk mengevaluasi performa mahasiswa dalam suatu mata kuliah.
+
+#### NilaiModel.java
+
+![image](img/ss10.png)
+
+- Kelas ini adalah model data untuk entitas Nilai dan mengatur semua operasi yang berhubungan dengan database, seperti CRUD (Create, Read, Update, Delete).
+
+- Terhubung dengan tabel database nilai.
+
+
+**Fitur utama:**
+
+**findAll:** Mengambil semua data dari tabel nilai.
+**findByMahasiswaId:** Mengambil data berdasarkan mahasiswa_id.
+**findById:** Mengambil data berdasarkan id.
+**insert:** Menyisipkan data baru ke tabel nilai.
+**update:** Memperbarui data yang sudah ada di tabel.
+**delete:** Menghapus data dari tabel berdasarkan id.
+
+- Data dari tabel diambil menggunakan ResultSet dan diubah menjadi objek Nilai menggunakan RowMapper.
+Semua query ditulis menggunakan PreparedStatement untuk menghindari SQL Injection.
 
 
 ### D. Package View:
 
 #### FormMahasiswa.java
 
-![image](MVC/ss10.png)
+![image](img/ss11.png)
 
 - Implementasi GUI menggunakan Java Swing
 Komponen utama:
 
-1. JTextField untuk input data
+**1. JTextField** untuk input data
 
-2. JButton untuk aksi (Save, Delete, Clear)
+**2. JButton** untuk aksi (Save, Delete, Clear)
 
-3. JTable untuk menampilkan data
+**3. JTable** untuk menampilkan data
 
 
-- Fitur:
+**- Fitur:**
 
-1. Form input data mahasiswa
+**1.** Form input data mahasiswa
 
-2. Tabel daftar mahasiswa
+**2.** Tabel daftar mahasiswa
 
-3. Tombol aksi
+**3.** Tombol aksi
 
 
 Event handling untuk interaksi user
 
+#### FormNilai.java
+
+
+![image](img/ss12.png)
+
+**Penjelasan**
+
+- GUI untuk menampilkan data Nilai dari mahasiswa.
+
+- Digunakan untuk memasukkan nilai tugas, UTS, UAS, dan menghitung nilai akhir serta grade.
+
+**Fitur utama:**
+
+**Input field:**
+
+**ID:** Identitas nilai (readonly).
+
+**Mahasiswa ID:** ID mahasiswa terkait.
+
+**Mata Kuliah, Semester, Nilai Tugas, Nilai UTS, Nilai UAS:** Informasi nilai yang dapat dimasukkan.
+
+**Nilai Akhir dan Grade:** Dihitung otomatis berdasarkan nilai-nilai yang dimasukkan.
+
+- Tombol:
+
+**Save:** Menyimpan data ke database.
+
+**Delete:** Menghapus data nilai yang dipilih.
+
+**Clear:** Membersihkan input field.
+
+- Tabel:
+
+**Menampilkan daftar nilai mahasiswa.**
+
+
+- Ketika pengguna memasukkan nilai, aplikasi akan otomatis menghitung Nilai Akhir dan Grade berdasarkan logika di controller.
+Setelah menyimpan data, tabel akan diperbarui dengan data terbaru.
+
 ### E. Main.java
 
-![image](MVC/ss11.png)
+![image](img/ss13.png)
 
-- Entry point aplikasi
-Inisialisasi semua komponen:
+- Kelas utama yang mengatur koneksi ke database dan menghubungkan semua komponen (model, view, controller).
 
-1. Membuat koneksi database
+**Fungsi utama:**
 
-2. Membuat instance Model
+- Membuat objek:
 
-3. Membuat instance View
+**Connection:** Koneksi ke database melalui Database.getConnection().
 
-4. Membuat instance Controller
+**MahasiswaModel:** Model untuk entitas Mahasiswa.
 
-5. Menampilkan GUI
+**NilaiModel:** Model untuk entitas Nilai.
+
+**FormMahasiswa:** GUI untuk mahasiswa.
+
+**FormNilai:** GUI untuk nilai mahasiswa.
+
+- Menghubungkan:
+
+**MahasiswaController** dengan **MahasiswaModel** dan **FormMahasiswa**.
+
+**NilaiController** dengan **NilaiModel**, **MahasiswaModel**, dan **FormNilai**.
 
 
+- Menampilkan GUI FormNilai kepada pengguna.
 
 
 ### KONFIGURASI DATABASE DI MYSQL
 
-- #mysql -h127.0.0.1 -uroot
+**- #mysql -h127.0.0.1 -uroot**
 
 ```
-CREATE DATABASE akademik_db;
+CREATE DATABASE akademik;
 ```
 ```
-USE akademik_db;
+USE akademik;
 ```
 ```
 CREATE TABLE mahasiswa (
@@ -205,62 +358,34 @@ CREATE TABLE mahasiswa (
     nim VARCHAR(20) NOT NULL UNIQUE,
     nama VARCHAR(100) NOT NULL,
     jurusan VARCHAR(50) NOT NULL,
-    alamat TEXT
+    angkatan VARCHAR(100) NOT NULL
+);
+```
+```
+CREATE TABLE nilai (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    mahasiswa_id INT NOT NULL,
+    mata_kuliah VARCHAR(100) NOT NULL,
+    semester INT NOT NULL,
+    nilai_tugas FLOAT,
+    nilai_uts FLOAT,
+    nilai_uas FLOAT,
+    nilai_akhir FLOAT,
+    grade CHAR(2),
+    FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id)
+    ON DELETE CASCADE
 );
 ```
 
-### CARA PENGGUNAAN APLIKASI
-
-#### A. Persiapan:
-
-- Install MySQL
-
-- Buat database menggunakan script SQL di atas
-
-- Install MySQL JDBC Driver
-
-- Sesuaikan konfigurasi database di Database.java
-
-#### B. Menjalankan Aplikasi:
-
-- Compile semua file Java
-
-- Jalankan Main.java
-
-- GUI aplikasi akan muncul
-
-#### C. Fitur-fitur:
-
-- Tambah Mahasiswa:
-
-1. Isi form dengan data mahasiswa
-
-2. Klik tombol Save
-
-
-- Edit Mahasiswa:
-
-1. Pilih data di tabel
-
-2. Data akan muncul di form
-
-3. Ubah data
-
-4. Klik Save
-
-- Hapus Mahasiswa:
-
-1. Pilih data di tabel
-
-2. Klik Delete
-
-
-- Clear Form:
-
-1. Klik Clear untuk membersihkan form
 
 ### Output
 
-![image](MVC/ss13.png)
+#### Form Mahasiswa
+
+![image](img/formmahasiswa.png)
+
+#### Form Nilai Mahasiswa
+
+![image](img/formnilaimahasiswa.png)
 
 ## Selesai
