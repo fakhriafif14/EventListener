@@ -7,13 +7,13 @@
 
 
 ## Latihan OOP
-![image](img/latihan.png)
+![image](mvc/ss.png)
 
 ### STRUKTUR PROYEK
 
 **- Proyek ini menggunakan arsitektur MVC (Model-View-Controller) dengan struktur folder:**
 
-![image](img/ss0.png)
+![image](mvc/ss0.png)
 
 **- classes:** Berisi kelas-kelas dasar dan utilitas
 
@@ -32,7 +32,7 @@
 
 #### BaseModel.java
 
-![image](img/ss1.png)
+![image](mvc/ss1.png)
 
 - Merupakan abstract class yang menjadi dasar untuk semua model
 Mengimplementasikan operasi CRUD dasar (Create, Read, Update, Delete)
@@ -53,7 +53,7 @@ Method abstract yang harus diimplementasikan:
 
 #### Database.java
 
-![image](img/ss2.png)
+![image](mvc/ss2.png)
 
 - Mengatur koneksi ke database MySQL
 Menggunakan pattern Singleton untuk koneksi database
@@ -70,7 +70,7 @@ Menyimpan konfigurasi database seperti:
 
 #### RowMapper.java
 
-![image](img/ss3.png)
+![image](mvc/ss3.png)
 
 - Interface untuk mapping data dari ResultSet ke objek
 
@@ -82,7 +82,7 @@ Menyimpan konfigurasi database seperti:
 
 #### MahasiswaController.java
 
-![image](img/ss4.png)
+![image](mvc/ss4.png)
 
 - Menghubungkan Model dan View
 Menghandle event dari View
@@ -98,7 +98,7 @@ Implementasi logika bisnis seperti:
 
 #### NilaiController.java
 
-![image](img/ss5nilai.png)
+![image](mvc/ss5nilai.png)
 
 - Mengontrol operasi CRUD untuk data nilai mahasiswa.
 
@@ -114,7 +114,7 @@ Implementasi logika bisnis seperti:
 
 #### Mahasiswa.java
 
-![image](img/ss7.png)
+![image](mvc/ss7.png)
 
 - POJO (Plain Old Java Object) untuk data mahasiswa
 Memiliki properti:
@@ -135,7 +135,7 @@ Memiliki properti:
 
 #### MahasiswaModel.java
 
-![image](img/ss8.png)
+![image](mvc/ss8.png)
 
 - Extends BaseModel<Mahasiswa>
 Implementasi operasi database untuk entity Mahasiswa
@@ -154,7 +154,7 @@ Implementasi method CRUD:
 
 #### Nilai.java
 
-![image](img/ss9.png)
+![image](mvc/ss9.png)
 
 - Atribut Kelas
 
@@ -226,7 +226,7 @@ E: < 50
 
 #### NilaiModel.java
 
-![image](img/ss10.png)
+![image](mvc/ss10.png)
 
 - Kelas ini adalah model data untuk entitas Nilai dan mengatur semua operasi yang berhubungan dengan database, seperti CRUD (Create, Read, Update, Delete).
 
@@ -250,7 +250,7 @@ Semua query ditulis menggunakan PreparedStatement untuk menghindari SQL Injectio
 
 #### FormMahasiswa.java
 
-![image](img/ss11.png)
+![image](mvc/ss11.png)
 
 - Implementasi GUI menggunakan Java Swing
 Komponen utama:
@@ -276,7 +276,7 @@ Event handling untuk interaksi user
 #### FormNilai.java
 
 
-![image](img/ss12.png)
+![image](mvc/ss12.png)
 
 **Penjelasan**
 
@@ -314,7 +314,7 @@ Setelah menyimpan data, tabel akan diperbarui dengan data terbaru.
 
 ### E. Main.java
 
-![image](img/ss13.png)
+![image](mvc/ss13.png)
 
 - Kelas utama yang mengatur koneksi ke database dan menghubungkan semua komponen (model, view, controller).
 
@@ -382,10 +382,10 @@ CREATE TABLE nilai (
 
 #### Form Mahasiswa
 
-![image](img/formmahasiswa.png)
+![image](mvc/ss14.png)
 
 #### Form Nilai Mahasiswa
 
-![image](img/formnilaimahasiswa.png)
+![image](mvc/ss15.png)
 
 ## Selesai
