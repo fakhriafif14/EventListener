@@ -7,23 +7,9 @@
 
 
 ## Latihan OOP
-![image](latihan.png)
+![image](mvc/ss.png)
+![image](mvc/ss0.png)
 
-### STRUKTUR PROYEK
-
-**- Proyek ini menggunakan arsitektur MVC (Model-View-Controller) dengan struktur folder:**
-
-![image](ss/struktur1.png)
-
-**- classes:** Berisi kelas-kelas dasar dan utilitas
-
-**- controller:** Berisi logic untuk mengontrol alur data
-
-**- model:** Berisi struktur data dan operasi database
-
-**- view:** Berisi tampilan GUI
-
-**- Main.java:** File utama untuk menjalankan aplikasi
 
 ### KONFIGURASI DATABASE DI MYSQL
 
@@ -56,21 +42,93 @@ CREATE TABLE nilai (
 );
 ```
 
-## PENJELASAN SETIAP PACKAGE DAN FILE
+### STRUKTUR PROYEK
 
-### A. Package Classes:
+**- Proyek ini menggunakan arsitektur MVC (Model-View-Controller) dengan struktur folder:**
 
-#### BaseModel.java
+![image](ss/ss1.png)
+
+**- classes:** Berisi kelas-kelas dasar dan utilitas
+
+**- controller:** Berisi logic untuk mengontrol alur data
+
+**- model:** Berisi struktur data dan operasi database
+
+**- view:** Berisi tampilan GUI
+
+**- Main.java:** File utama untuk menjalankan aplikasi
 
 
-### Output
+### Tampilan Awal Program Saat Dijalankan / Dirunning
+![img](mvc/ss2.png)
+Pada saat program dijalankan / di running akan menghasilkan output seperti diatas ini
+- Menampilkan Form Mahasiswa utama dengan tabel yang berisi data 4 mahasiswa
+- Data yang ditampilkan: ID, NIM, Nama, Jurusan, dan Angkatan
+- Memiliki field kosong di atas untuk input data baru
+- Terdapat 4 tombol: Save, Delete, Clear, dan Lihat Nilai
 
-- Form Mahasiswa
+<br> <br>
 
-![image](ss/outputmhs.png)
 
-- Form Nilai
+### Tampilan Ketika Penambahan Data Mahasiswa
+![img](mvc/ss3.png)
+berikut adalah proses penambahan mahasiswa baru dengan field yang diisi adalah bagian `NIM`, `Nama`, `Jurusan`, `Angkatan`.
 
-![image](ss/outputnilai.png)
+<br> <br>
+
+
+### Tampilan Ketika Penambahan Data Mahasiswa Berhasil
+![img](mvc/ss4.png)
+Pada saat setelah mengklik tombol `Save`, muncul popup dengan pesan `"Data saved successfully!"`. Menandakan data mahasiswa baru berhasil disimpan ke database.
+
+<br> <br>
+
+
+### Tampilan Ketika Data Mahasiswa Berhasil Ditambahkan
+![img](mvc/ss5.png)
+Data mahasiswa baru (Rahmat Cihuy) sudah muncul di tabel, terlihat sebagai record ke-5 dalam tabel. Semua field input kembali kosong setelah penyimpanan.
+
+<br> <br>
+
+
+### Tampilan Ketika Gagal Akan Melihat Nilai
+![img](mvc/ss6.png)
+Mencoba mengklik tombol `Lihat Nilai` tanpa memilih data akan memunculkan pesan `Pilih siswanya terlebih dahulu!`. Menunjukkan validasi bahwa user harus memilih data `Mahasiswa` nya terlebih dahulu untuk bisa melihat nilai dari `Mahasiswa`nya tersebut.
+
+<br> <br>
+
+
+### Tampilan Ketika Memilih Mahasiswa
+![img](mvc/ss7.png)
+Kembali ke tampilan normal `Form Mahasiswa`. Dan pemilihan `Mahasiswa` terlebih dahulu untuk melihat `Nilai` data dari si `Mahasiswa`.
+
+<br> <br>
+
+
+### Tampilan Ketika Menambahkan Sebuah Data Nilai Dari Mahasiswa
+![img](mvc/ss8.png)
+- Muncul form baru Data Nilai Mahasiswa : Fakhri afif (312220632).
+- Mengisi field `Mata Kuliah` `Semester` `Nilai`.
+
+<br> <br>
+
+
+### Tampilan Ketika Data Nilai Berhasil Disimpan 
+![img](mvc/ss9.png)
+Setelah klik Save, muncul popup `Nilai berhasil disimpan!`.
+
+<br> <br>
+
+
+### Tampilan Ketika Setelah Selesai Penambahan Data Nilai
+![img](mvc/ss10.png)
+- Data nilai yang baru diinput muncul di tabel nilai
+- Menampilkan `ID (5)`, `Mata Kuliah (Probabilitas statistika)`, `Semester (3)`, dan `Nilai (80)`.
+
+<br>
+
+
+Program ini menggunakan konsep form management yang baik dengan validasi data dan feedback user melalui popup messages. Interface dibuat user-friendly dengan tabel untuk menampilkan data dan form input yang jelas.
+
 
 ## Selesai
