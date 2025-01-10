@@ -89,7 +89,7 @@ Pada saat setelah mengklik tombol `Save`, muncul popup dengan pesan `"Data saved
 
 ### Tampilan Ketika Data Mahasiswa Berhasil Ditambahkan
 ![img](mvc/ss5.png)
-Data mahasiswa baru (Rahmat Cihuy) sudah muncul di tabel, terlihat sebagai record ke-5 dalam tabel. Semua field input kembali kosong setelah penyimpanan.
+Data mahasiswa baru (sofyan) sudah muncul di tabel, terlihat sebagai record ke-5 dalam tabel. Semua field input kembali kosong setelah penyimpanan.
 
 <br> <br>
 
