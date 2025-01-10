@@ -5,7 +5,7 @@
 | Nama  | fakhri afif
 | Kelas | TI.23.A6
 
-[Link Penjelasan Proses Pembuatan Program | YouTube](https://)
+[Link Penjelasan Proses Pembuatan Program | YouTube](https://youtu.be/cp13Lnw9yRg)
 
 
 
