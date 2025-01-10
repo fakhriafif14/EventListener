@@ -1,4 +1,4 @@
-## Project OOP berbasis MVC
+## Project OOP Berbasis MVC
 | Pertemuan 13  |  Pemrograman Berorientasi Objek  
 |-------|---------
 | NIM   | 312310632
