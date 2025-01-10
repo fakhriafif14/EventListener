@@ -5,6 +5,9 @@
 | Nama  | fakhri afif
 | Kelas | TI.23.A6
 
+[Link Penjelasan Proses Pembuatan Program | YouTube](https://)
+
+
 
 ## Latihan OOP
 ![image](mvc/ss.png)
@@ -46,7 +49,7 @@ CREATE TABLE nilai (
 
 **- Proyek ini menggunakan arsitektur MVC (Model-View-Controller) dengan struktur folder:**
 
-![image](ss/ss1.png)
+![image](mvc/ss1.png)
 
 **- classes:** Berisi kelas-kelas dasar dan utilitas
 
